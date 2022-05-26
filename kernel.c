@@ -142,6 +142,17 @@ void kernel_main() {
    * This is normal.
    */
   //terminal_writestring("Hello, kernel World!\n");
+
+  // This will print writestring in the colour red once.
+  for (size_t q = 0; q < 1; q++) 
+  {
+    // Selects the colour red.
+    terminal_setcolor(COLOR_RED);
+    // Prints the message.
+    terminal_writestring("Hello, kernel World!");
+  }
+
+  
 }
 
 // Program end.
