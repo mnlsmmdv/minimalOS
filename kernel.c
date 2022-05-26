@@ -170,7 +170,14 @@ void kernel_main() {
     terminal_writestring("Hello, kernel World!");
   }
 
-
+  // This will print writestring in the colour green five times.
+  for (size_t r = 0; r < 5; r++)
+  {
+    // Selects the colour green.
+    terminal_setcolor(COLOR_GREEN);
+    // Prints the message.
+    terminal_writestring("Hello, kernel World!");
+  }
 }
 
 // Program end.
