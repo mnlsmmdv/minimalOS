@@ -132,7 +132,7 @@ void terminal_putchar(char c)
     // Setting terminal column as zero.
     terminal_column = 0;
     //terminal_row++;
-    // Calling the terminal scroll function if the terminal's row is equal to VGA_HEIGHT .
+    // Calling the terminal scroll function if the terminal's row is equal to "VGA_HEIGHT".
     if (++terminal_row == VGA_HEIGHT)
     {
       // Calling the terminal scroll function.
