@@ -34,6 +34,7 @@
 /* Hardware text mode color constants. */
 enum vga_color 
 {
+  // Colour codes for terminal writestrings and terminal colours.
 	COLOR_BLACK = 0,
 	COLOR_BLUE = 1,
 	COLOR_GREEN = 2,
