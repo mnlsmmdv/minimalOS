@@ -170,7 +170,7 @@ void kernel_main() {
     // Selects the colour red.
     terminal_setcolor(COLOR_RED);
     // Prints the message.
-    terminal_writestring("Hello, kernel World!");
+    terminal_writestring("Hello, kernel World!\n");
   }
 
   // This will print writestring in the colour white six times.
@@ -179,7 +179,7 @@ void kernel_main() {
     // Selects the colour white.
     terminal_setcolor(COLOR_WHITE);
     // Prints the message.
-    terminal_writestring("Hello, kernel World!");
+    terminal_writestring("Hello, kernel World!\n");
   }
 
   // This will print writestring in the colour blue eighteen times.
@@ -188,7 +188,7 @@ void kernel_main() {
     // Selects the colour blue.
     terminal_setcolor(COLOR_BLUE);
     // Prints the message.
-    terminal_writestring("Hello, kernel World!");
+    terminal_writestring("Hello, kernel World!\n");
   }
 
   // This will print writestring in the colour green five times.
@@ -197,7 +197,7 @@ void kernel_main() {
     // Selects the colour green.
     terminal_setcolor(COLOR_GREEN);
     // Prints the message.
-    terminal_writestring("Hello, kernel World!");
+    terminal_writestring("Hello, kernel World!\n");
   }
 }
 
