@@ -228,4 +228,3 @@ void kernel_main()
 }
 
 // Program end.
-
