@@ -32,7 +32,8 @@
 #endif
  
 /* Hardware text mode color constants. */
-enum vga_color {
+enum vga_color 
+{
 	COLOR_BLACK = 0,
 	COLOR_BLUE = 1,
 	COLOR_GREEN = 2,
@@ -52,19 +53,22 @@ enum vga_color {
 };
 
 // This function will choose colours for the kernel. 
-uint8_t make_color(enum vga_color fg, enum vga_color bg) {
+uint8_t make_color(enum vga_color fg, enum vga_color bg) 
+{
   return fg | bg << 4;
 }
 
 // This function will creates the characters colours needed for the kernel.
-uint16_t make_vgaentry(char c, uint8_t color) {
+uint16_t make_vgaentry(char c, uint8_t color) 
+{
   uint16_t c16 = c;
   uint16_t color16 = color;
   return c16 | color16 << 8;
 }
 
 // This function will validate strings. 
-size_t strlen(const char* str) {
+size_t strlen(const char* str) 
+{
   size_t ret = 0;
   while ( str[ret] != 0 )
     ret++;
@@ -87,7 +91,8 @@ uint8_t terminal_color;
 uint16_t* terminal_buffer;
  
 // This function will refresh the programs terminal screen.
-void terminal_initialize() {
+void terminal_initialize() 
+{
   terminal_row = 0;
   terminal_column = 0;
   terminal_color = make_color(COLOR_LIGHT_GREY, COLOR_BLACK);
@@ -101,12 +106,14 @@ void terminal_initialize() {
 }
  
 // This function will set the terminal's colours.
-void terminal_setcolor(uint8_t color) {
+void terminal_setcolor(uint8_t color) 
+{
   terminal_color = color;
 }
  
 // This function will display various characters on the terminal screen.
-void terminal_putentryat(char c, uint8_t color, size_t x, size_t y) {
+void terminal_putentryat(char c, uint8_t color, size_t x, size_t y) 
+{
   const size_t index = y * VGA_WIDTH + x;
   terminal_buffer[index] = make_vgaentry(c, color);
 }
@@ -125,7 +132,7 @@ void terminal_putchar(char c) {
     if (++terminal_row == VGA_HEIGHT)
     {
       // Calling the terminal scroll function.
-      terminal_scroll();
+      terminal_vertical_scroll();
     }
   }
   else
@@ -144,17 +151,32 @@ void terminal_putchar(char c) {
 }
  
 // This function will help print characters on the terminal screen.
-void terminal_writestring(const char* data) {
+void terminal_writestring(const char* data) 
+{
   size_t datalen = strlen(data);
   for (size_t i = 0; i < datalen; i++)
     terminal_putchar(data[i]);
+}
+
+// This function will handle the scrolling in the terminal.
+void terminal_vertical_scroll()
+{
+  // This will check for the width and height of the terminal screen.
+  for (size_t t = 0; t < (VGA_WIDTH * VGA_HEIGHT); t++)
+  {
+    terminal_buffer[t] = terminal_buffer[VGA_WIDTH + t];
+  }
+
+  // Decreases one row from the terminal screen.
+  terminal_row -= 1;
 }
 
 // Programs main function.
 #if defined(__cplusplus)
 extern "C" /* Use C linkage for kernel_main. */
 #endif
-void kernel_main() {
+void kernel_main() 
+{
   /* Initialize terminal interface */
   terminal_initialize();
   
