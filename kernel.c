@@ -59,7 +59,7 @@ uint8_t make_color(enum vga_color fg, enum vga_color bg)
   return fg | bg << 4;
 }
 
-// This function will create the characters colours needed for the kernel.
+// This function will choose colours for the terminal's buffers.
 uint16_t make_vgaentry(char c, uint8_t color) 
 {
   uint16_t c16 = c;
