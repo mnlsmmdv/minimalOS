@@ -127,6 +127,7 @@ void terminal_putchar(char c)
 {
   // This will check for a new line character on the terminal screen and calls the scroll function to be implemented.
   // "char c" refers to characters on the terminal screen.
+  // To check for "char c" as a parameter do not use " ("") ".
   if (c == '\n')
   {
     // Setting terminal column as zero.
