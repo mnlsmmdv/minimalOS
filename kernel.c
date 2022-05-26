@@ -113,10 +113,31 @@ void terminal_putentryat(char c, uint8_t color, size_t x, size_t y) {
 
 // This function will display the current position of the cursor on the terminal screen.
 void terminal_putchar(char c) {
-  terminal_putentryat(c, terminal_color, terminal_column, terminal_row);
-  if (++terminal_column == VGA_WIDTH) {
+
+
+  // This will check for a new line character and calls the scroll function.
+  if (c == '\n')
+  {
+    // Setting terminal column as zero.
     terminal_column = 0;
-    if (++terminal_row == VGA_HEIGHT) {
+    //terminal_row++;
+    // Calling the terminal scroll function if the terminal's row is equal to VGA_HEIGHT .
+    if (++terminal_row == VGA_HEIGHT)
+    {
+      // Calling the terminal scroll function.
+      terminal_scroll();
+    }
+  }
+  else
+      terminal_putentryat(c, terminal_color, terminal_column, terminal_row);
+
+  // This checks for the width and height of the terminal.
+  if (++terminal_column == VGA_WIDTH) 
+  {
+    terminal_column = 0;
+    if (++terminal_row == VGA_HEIGHT) 
+    {
+      // Calling the terminal scroll function function.
       terminal_row = 0;
     }
   }
