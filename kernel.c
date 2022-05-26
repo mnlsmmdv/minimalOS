@@ -6,6 +6,9 @@
  * Country: Republic of Maldives
  * Description: Minimal OS, to show how to boot an x86 machine. UFCFWK-15-2
  * Student Number(UWE): 19045165
+ * Module: Operating Systems
+ * Module Code: UFCFWK-15-2
+ * Year: 02
  * Student ID:(VC): 1802035
  * Note: Uncomment codes to execute and comment them when not in use.
  */
