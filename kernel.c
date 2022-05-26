@@ -53,7 +53,7 @@ enum vga_color
 	COLOR_WHITE = 15,
 };
 
-// This function will choose colours for the kernel. 
+// This function will choose colours for the terminal screen. 
 uint8_t make_color(enum vga_color fg, enum vga_color bg) 
 {
   return fg | bg << 4;
