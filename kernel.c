@@ -150,6 +150,7 @@ void terminal_putchar(char c)
     if (++terminal_row == VGA_HEIGHT) 
     {
       // Calling the terminal scroll function function.
+      terminal_vertical_scroll();
       terminal_row = 0;
     }
   }
