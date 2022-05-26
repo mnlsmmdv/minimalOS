@@ -161,7 +161,16 @@ void kernel_main() {
     terminal_writestring("Hello, kernel World!");
   }
 
-  
+  // This will print writestring in the colour blue eighteen times.
+  for (size_t e = 0; e < 18; e++)
+  {
+    // Selects the colour blue.
+    terminal_setcolor(COLOR_BLUE);
+    // Prints the message.
+    terminal_writestring("Hello, kernel World!");
+  }
+
+
 }
 
 // Program end.
