@@ -120,7 +120,8 @@ void terminal_putentryat(char c, uint8_t color, size_t x, size_t y)
 }
 
 // This function will display the current position of the cursor on the terminal screen.
-void terminal_putchar(char c) {
+void terminal_putchar(char c) 
+{
   // This will check for a new line character on the terminal screen and calls the scroll function to be implemented.
   // "charc c" refers to characters on the terminal screen.
   if (c == '\n')
