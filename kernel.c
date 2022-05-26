@@ -152,6 +152,15 @@ void kernel_main() {
     terminal_writestring("Hello, kernel World!");
   }
 
+  // This will print writestring in the colour white six times.
+  for (size_t w = 0; w < 6; w++)
+  {
+    // Selects the colour white.
+    terminal_setcolor(COLOR_WHITE);
+    // Prints the message.
+    terminal_writestring("Hello, kernel World!");
+  }
+
   
 }
 
