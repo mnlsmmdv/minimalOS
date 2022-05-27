@@ -59,6 +59,7 @@ enum vga_color
 // This function will choose colours for the terminal screen. 
 uint8_t make_color(enum vga_color fg, enum vga_color bg) 
 {
+  // Sets red colour as background and foreground.
   return fg | bg << 4;
 }
 
@@ -84,6 +85,8 @@ size_t strlen(const char* str)
 static const size_t VGA_WIDTH = 80;
 // Height of the terminal screen.
 static const size_t VGA_HEIGHT = 25;
+
+//static const size_t calculate_screen;
 
 // Refers to termninal row.
 size_t terminal_row;
@@ -112,6 +115,7 @@ void terminal_initialize()
 // This function will set the terminal's colours.
 void terminal_setcolor(uint8_t color) 
 {
+ // Sets the termninal's colour.
   terminal_color = color;
 }
  
@@ -126,7 +130,7 @@ void terminal_putentryat(char f, uint8_t color, size_t x, size_t y)
 void terminal_putchar(char f) 
 {
   // This will check for a new line character on the terminal screen and calls the scroll function to be implemented.
-  // "char c" refers to characters on the terminal screen.
+  // "char f" refers to characters on the terminal screen.
   // Do not use " ("") " to check for "char f" as a parameter.
   if (f == '\n')
   {
@@ -143,6 +147,7 @@ void terminal_putchar(char f)
   else
       // Calling function to display characters on the screen.
       terminal_putentryat(f, terminal_color, terminal_column, terminal_row);
+  
 
   // This checks for the width and height of the terminal.
   if (++terminal_column == VGA_WIDTH) 
@@ -169,7 +174,7 @@ void terminal_writestring(const char* data)
 void terminal_vertical_scroll()
 {
   // This will check for the width and height of the terminal screen.
-  for (size_t t = 0; t < (VGA_WIDTH * VGA_HEIGHT); t++)
+  for (size_t t = 0; t < (VGA_HEIGHT * VGA_WIDTH); t++)
   {
     terminal_buffer[t] = terminal_buffer[VGA_WIDTH + t];
   }
@@ -177,6 +182,13 @@ void terminal_vertical_scroll()
   // Decreases one row from the terminal screen.
   terminal_row -= 1;
 }
+
+/*
+void terminal_screen_check_new_line()
+{
+
+}
+*/
 
 // Programs main function.
 #if defined(__cplusplus)
