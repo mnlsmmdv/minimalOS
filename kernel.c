@@ -116,19 +116,19 @@ void terminal_setcolor(uint8_t color)
 }
  
 // This function will display various characters on the terminal screen.
-void terminal_putentryat(char c, uint8_t color, size_t x, size_t y) 
+void terminal_putentryat(char f, uint8_t color, size_t x, size_t y) 
 {
   const size_t index = y * VGA_WIDTH + x;
-  terminal_buffer[index] = make_vgaentry(c, color);
+  terminal_buffer[index] = make_vgaentry(f, color);
 }
 
 // This function will display the current position of the cursor on the terminal screen.
-void terminal_putchar(char c) 
+void terminal_putchar(char f) 
 {
   // This will check for a new line character on the terminal screen and calls the scroll function to be implemented.
   // "char c" refers to characters on the terminal screen.
-  // To check for "char c" as a parameter do not use " ("") ".
-  if (c == '\n')
+  // To check for "char f" as a parameter do not use " ("") ".
+  if (f == '\n')
   {
     // Setting terminal column as zero.
     terminal_column = 0;
@@ -141,7 +141,8 @@ void terminal_putchar(char c)
     }
   }
   else
-      terminal_putentryat(c, terminal_color, terminal_column, terminal_row);
+      // Calling function to display characters on the screen.
+      terminal_putentryat(f, terminal_color, terminal_column, terminal_row);
 
   // This checks for the width and height of the terminal.
   if (++terminal_column == VGA_WIDTH) 
