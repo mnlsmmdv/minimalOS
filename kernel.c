@@ -145,9 +145,10 @@ void terminal_putchar(char f)
     }
   }
   else
+  {
       // Calling function to display characters on the screen.
       terminal_putentryat(f, terminal_color, terminal_column, terminal_row);
-  
+  }
 
   // This checks for the width and height of the terminal.
   if (++terminal_column == VGA_WIDTH) 
