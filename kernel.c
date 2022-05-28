@@ -180,7 +180,7 @@ void terminal_vertical_scroll()
   }
 
   // Decreases one row from the terminal screen.
-  // terminal_row -= 1 and terminal_row-- does the same thing.
+  // "terminal_row -= 1;" and "terminal_row--;"" does the same thing.
   terminal_row--;
 }
 
