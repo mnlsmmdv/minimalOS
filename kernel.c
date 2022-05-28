@@ -167,8 +167,8 @@ void terminal_putchar(char f)
 void terminal_writestring(const char* data) 
 {
   size_t datalen = strlen(data);
-  for (size_t i = 0; i < datalen; i++)
-    terminal_putchar(data[i]);
+  for (size_t t = 0; t < datalen; t++)
+    terminal_putchar(data[t]);
 }
 
 // This function will handle the scrolling in the terminal.
