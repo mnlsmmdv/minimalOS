@@ -180,7 +180,8 @@ void terminal_vertical_scroll()
   }
 
   // Decreases one row from the terminal screen.
-  terminal_row -= 1;
+  // terminal_row -= 1 and terminal_row-- does the same thing.
+  terminal_row--;
 }
 
 /*
@@ -205,11 +206,12 @@ void kernel_main()
    */
   //terminal_writestring("Hello, kernel World!\n");
 
+  // Using for example "COLOR_WHITE" or colour code "15" to call for colours both work.
   // This will print writestring in the colour red once.
   for (size_t q = 0; q < 1; q++) 
   {
     // Selects the colour red.
-    terminal_setcolor(COLOR_RED);
+    terminal_setcolor(4);
     // Prints the message.
     terminal_writestring("Hello, kernel World!\n");
   }
@@ -218,7 +220,7 @@ void kernel_main()
   for (size_t w = 0; w < 6; w++)
   {
     // Selects the colour white.
-    terminal_setcolor(COLOR_WHITE);
+    terminal_setcolor(15);
     // Prints the message.
     terminal_writestring("Hello, kernel World!\n");
   }
@@ -227,7 +229,7 @@ void kernel_main()
   for (size_t e = 0; e < 18; e++)
   {
     // Selects the colour blue.
-    terminal_setcolor(COLOR_BLUE);
+    terminal_setcolor(1);
     // Prints the message.
     terminal_writestring("Hello, kernel World!\n");
   }
@@ -236,7 +238,7 @@ void kernel_main()
   for (size_t r = 0; r < 5; r++)
   {
     // Selects the colour green.
-    terminal_setcolor(COLOR_GREEN);
+    terminal_setcolor(2);
     // Prints the message.
     terminal_writestring("Hello, kernel World!\n");
   }
