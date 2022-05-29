@@ -100,13 +100,17 @@ uint16_t* terminal_buffer;
 // This function will refresh the programs terminal screen.
 void terminal_initialize() 
 {
+  // Variables declared referring to VGA characteristics.
+  size_t screen_width = VGA_WIDTH;
+  size_t screen_height = VGA_HEIGHT;
+
   terminal_row = 0;
   terminal_column = 0;
   terminal_color = make_color(COLOR_LIGHT_GREY, COLOR_BLACK);
   terminal_buffer = (uint16_t*) 0xB8000;
-  for (size_t y = 0; y < VGA_HEIGHT; y++) {
-    for (size_t x = 0; x < VGA_WIDTH; x++) {
-      const size_t index = y * VGA_WIDTH + x;
+  for (size_t y = 0; y < screen_height; y++) {
+    for (size_t x = 0; x < screen_width; x++) {
+      const size_t index = y * screen_width + x;
       terminal_buffer[index] = make_vgaentry(' ', terminal_color);
     }
   }
@@ -122,6 +126,7 @@ void terminal_setcolor(uint8_t color)
 // This function will display various characters on the terminal screen.
 void terminal_putentryat(char f, uint8_t color, size_t x, size_t y) 
 {
+  size_t screen_width = VGA_WIDTH;
   const size_t index = y * VGA_WIDTH + x;
   terminal_buffer[index] = make_vgaentry(f, color);
 }
@@ -129,6 +134,10 @@ void terminal_putentryat(char f, uint8_t color, size_t x, size_t y)
 // This function will display the current position of the cursor on the terminal screen.
 void terminal_putchar(char f) 
 {
+  // Separate variables for VGA.
+  size_t screen_width = VGA_WIDTH;
+  size_t screen_height = VGA_HEIGHT;
+
   // This will check for a new line character on the terminal screen and calls the scroll function to be implemented.
   // "char f" refers to characters on the terminal screen.
   // Do not use " ("") " to check for "char f" as a parameter.
@@ -138,7 +147,7 @@ void terminal_putchar(char f)
     terminal_column = 0;
     //terminal_row++;
     // Calling the terminal scroll function if the terminal's row is equal to "VGA_HEIGHT".
-    if (++terminal_row == VGA_HEIGHT)
+    if (++terminal_row == screen_height)
     {
       // Calling the terminal scroll function.
       terminal_vertical_scroll();
@@ -151,13 +160,14 @@ void terminal_putchar(char f)
   }
 
   // This checks for the width and height of the terminal.
-  if (++terminal_column == VGA_WIDTH) 
+  if (++terminal_column == screen_width) 
   {
     terminal_column = 0;
-    if (++terminal_row == VGA_HEIGHT) 
+    if (++terminal_row == screen_height) 
     {
       // Calling the terminal scroll function function.
       terminal_vertical_scroll();
+    if (++terminal_row == screen_height) 
       terminal_row = 0;
     }
   }
