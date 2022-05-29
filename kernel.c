@@ -15,6 +15,9 @@
 
 // Program start.
 
+/*
+ * Desc: Minimal OS, to show how to boot an x86 machine. UFCFWK-15-2
+ */
 #if !defined(__cplusplus)
 #include <stdbool.h> /* C doesn't have booleans by default. */
 #endif
