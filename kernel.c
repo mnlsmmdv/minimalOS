@@ -134,7 +134,7 @@ void terminal_putentryat(char f, uint8_t color, size_t x, size_t y)
 // This function will display the current position of the cursor on the terminal screen.
 void terminal_putchar(char f) 
 {
-  // Separate variables for VGA.
+  // Variables declared referring to VGA characteristics.
   size_t screen_width = VGA_WIDTH;
   size_t screen_height = VGA_HEIGHT;
 
