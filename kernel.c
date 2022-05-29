@@ -207,8 +207,7 @@ void kernel_main()
    * yet, '\n' will produce some VGA specific character instead.
    * This is normal.
    */
-  //terminal_writestring("Hello, kernel World!\n");
-
+  
   // Using for example "COLOR_WHITE" or colour code "15" to call for colours both work.
   // This will print writestring in the colour red once.
   for (size_t q = 0; q < 1; q++) 
