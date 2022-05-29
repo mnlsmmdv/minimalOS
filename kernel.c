@@ -37,7 +37,7 @@
 /* Hardware text mode color constants. */
 enum vga_color 
 {
-    // Colour codes for terminal writestrings and terminal colours.
+  // Colour codes for terminal writestrings and terminal colours.
 	COLOR_BLACK = 0,
 	COLOR_BLUE = 1,
 	COLOR_GREEN = 2,
@@ -174,12 +174,14 @@ void terminal_writestring(const char* data)
 // This function will handle the scrolling in the terminal.
 void terminal_vertical_scroll()
 {
+  // This variable will calculate the width and height of the terminal screen to get the screen size. 
+  size_t terminal_screen_size_calculate = VGA_WIDTH * VGA_HEIGHT;
   // This will check for the width and height of the terminal screen.
-  for (size_t t = 0; t < (VGA_HEIGHT * VGA_WIDTH); t++)
+  size_t screen_width = VGA_WIDTH;
+  for (size_t t = 0; t < terminal_screen_size_calculate; t++)
   {
-    terminal_buffer[t] = terminal_buffer[VGA_WIDTH + t];
+    terminal_buffer[t] = terminal_buffer[t + screen_width];
   }
-
   // Decreases one row from the terminal screen.
   // "terminal_row -= 1;" and "terminal_row--;"" does the same thing.
   terminal_row--;
