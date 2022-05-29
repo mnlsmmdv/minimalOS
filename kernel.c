@@ -15,9 +15,6 @@
 
 // Program start.
 
-/*
- * Desc: Minimal OS, to show how to boot an x86 machine. UFCFWK-15-2
- */
 #if !defined(__cplusplus)
 #include <stdbool.h> /* C doesn't have booleans by default. */
 #endif
@@ -186,13 +183,6 @@ void terminal_vertical_scroll()
   // "terminal_row -= 1;" and "terminal_row--;"" does the same thing.
   terminal_row--;
 }
-
-/*
-void terminal_screen_check_new_line()
-{
-
-}
-*/
 
 // Programs main function.
 #if defined(__cplusplus)
