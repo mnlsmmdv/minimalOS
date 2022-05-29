@@ -164,8 +164,10 @@ void terminal_putchar(char f)
     {
       // Calling the terminal scroll function function.
       terminal_vertical_scroll();
-    if (++terminal_row == screen_height) 
+    if (++terminal_row == screen_height)
+    {
       terminal_row = 0;
+    }
     }
   }
 }
