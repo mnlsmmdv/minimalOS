@@ -4,7 +4,7 @@
  * Folder: minimalOS
  * Date: 26/05/2022
  * Country: Republic of Maldives
- * Description: Minimal OS, to show how to boot an x86 machine. UFCFWK-15-2
+ * Description: Minimal OS, to show how to boot an x86 machine.
  * Student Number(UWE): 19045165
  * Module: Operating Systems
  * Module Code: UFCFWK-15-2
