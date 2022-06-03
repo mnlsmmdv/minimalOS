@@ -187,7 +187,10 @@ void terminal_screen_vertical_scroll()
   size_t terminal_screen_size_calculate = VGA_WIDTH * VGA_HEIGHT;
   // This will check for the width and height of the terminal screen and add it to the buffer.
   size_t screen_width = VGA_WIDTH;
-  for (size_t t = 0; t < terminal_screen_size_calculate; t++)
+  // Variable declared for FOR loop below.
+  size_t t;
+
+  for (t = 0; t < terminal_screen_size_calculate; t++)
   {
     terminal_buffer[t] = terminal_buffer[t + screen_width];
   }
