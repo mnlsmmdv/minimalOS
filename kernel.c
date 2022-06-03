@@ -212,13 +212,11 @@ void kernel_main()
   
   // Using for example "COLOR_WHITE" or colour code "15" to call for colours both work.
   // This will print writestring in the colour red once.
-  for (size_t q = 0; q < 1; q++) 
-  {
-    // Selects the colour red.
-    terminal_setcolor(4);
-    // Prints the message.
-    terminal_writestring("Hello, kernel World!\n");
-  }
+
+  // Selects the colour red.
+  terminal_setcolor(4);
+  // Prints the message.
+  terminal_writestring("Hello, kernel World!\n");
 
   // This will print writestring in the colour white six times.
   for (size_t w = 0; w < 6; w++)
