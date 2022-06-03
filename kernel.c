@@ -192,7 +192,9 @@ void terminal_screen_vertical_scroll()
 
   for (t = 0; t < terminal_screen_size_calculate; t++)
   {
-    terminal_buffer[t] = terminal_buffer[t + screen_width];
+    // Variable declared to calculate terminal buffer.
+    size_t terminal_buffer_calculate = t + screen_width;
+    terminal_buffer[t] = terminal_buffer[terminal_buffer_calculate];
   }
   // Decreases one row from the terminal screen.
   // "terminal_row -= 1;" and "terminal_row--;"" does the same thing.
