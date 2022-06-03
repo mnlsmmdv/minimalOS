@@ -215,7 +215,7 @@ void kernel_main()
 
   size_t q, w, e, r;
 
-  for(size_t q = 0; q < 1; q++)
+  for(q = 0; q < 1; q++)
   { 
     // Selects the colour red.
     terminal_setcolor(4);
@@ -224,7 +224,7 @@ void kernel_main()
   }
 
   // This will print writestring in the colour white six times.
-  for (size_t w = 0; w < 6; w++)
+  for (w = 0; w < 6; w++)
   {
     // Selects the colour white.
     terminal_setcolor(15);
@@ -233,7 +233,7 @@ void kernel_main()
   }
 
   // This will print writestring in the colour blue eighteen times.
-  for (size_t e = 0; e < 18; e++)
+  for (e = 0; e < 18; e++)
   {
     // Selects the colour blue.
     terminal_setcolor(1);
@@ -242,7 +242,7 @@ void kernel_main()
   }
 
   // This will print writestring in the colour green five times.
-  for (size_t r = 0; r < 5; r++)
+  for (r = 0; r < 5; r++)
   {
     // Selects the colour green.
     terminal_setcolor(2);
