@@ -147,7 +147,7 @@ void terminal_putchar(char f)
     if (++terminal_row == screen_height)
     {
       // Calling the terminal scroll function.
-      terminal_vertical_scroll();
+      terminal_screen_vertical_scroll();
     }
   }
   else
@@ -163,7 +163,7 @@ void terminal_putchar(char f)
     if (++terminal_row == screen_height) 
     {
       // Calling the terminal scroll function function.
-      terminal_vertical_scroll();
+      terminal_screen_vertical_scroll();
     if (++terminal_row == screen_height)
     {
       terminal_row = 0;
@@ -181,7 +181,7 @@ void terminal_writestring(const char* data)
 }
 
 // This function will handle the scrolling in the terminal.
-void terminal_vertical_scroll()
+void terminal_screen_vertical_scroll()
 {
   // This variable will calculate the width and height of the terminal screen to get the screen size. 
   size_t terminal_screen_size_calculate = VGA_WIDTH * VGA_HEIGHT;
