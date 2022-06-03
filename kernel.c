@@ -213,6 +213,8 @@ void kernel_main()
   // Using for example "COLOR_WHITE" or colour code "15" to call for colours both work.
   // This will print writestring in the colour red once.
 
+  size_t q, w, e, r;
+
   for(size_t q = 0; q < 1; q++)
   { 
     // Selects the colour red.
