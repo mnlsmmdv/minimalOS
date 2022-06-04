@@ -180,6 +180,31 @@ void terminal_writestring(const char* data)
     terminal_putchar(data[t]);
 }
 
+/*
+void terminal_writestring_repeat()
+{
+  // Variable for the FOR Loop below.
+  size_t g;
+
+  // Prints 30 lines of the writestring.
+  for(g = 0; g < 30; g++)
+  { 
+    // Calling color function.
+    terminal_writestring_color_multiple();
+    // Prints the message.
+    terminal_writestring("Hello, kernel World!\n");
+  }
+}
+*/
+
+/*
+void terminal_writestring_color_multiple()
+{
+
+}
+*/
+
+
 // This function will handle the scrolling in the terminal.
 void terminal_screen_vertical_scroll()
 {
@@ -217,6 +242,7 @@ void kernel_main()
   
   // Using for example "COLOR_WHITE" or colour code "15" to call for colours both work.
   // This will print writestring in the colour red once.
+  //terminal_writestring_repeat();
 
   // Variables declared for the FOR loops below.
   size_t q, w, e, r;
